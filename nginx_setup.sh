@@ -20,6 +20,11 @@ NGINX_CONFIG="server {
     listen 80;
     server_name ${PUBLIC_IP};
 
+    location = /favicon.ico { access_log off; log_not_found off; }
+    location /static/ {
+        alias /home/ubuntu/course_platform/static;
+    }
+
     location / {
         proxy_pass http://127.0.0.1:8000;
         proxy_set_header Host \$host;
