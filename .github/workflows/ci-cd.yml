@@ -51,27 +51,3 @@ jobs:
       run: |
         python manage.py test
 
-  deploy:
-    needs: build-and-test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Deploy to server
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SERVER_HOST }}
-        username: ${{ secrets.SERVER_USER }}
-        key: ${{ secrets.SERVER_SSH_KEY }}
-        port: ${{ secrets.SERVER_SSH_PORT }}
-        script: |
-          cd /home/ubuntu/course_platform
-          ./update_settings.sh
-          sudo ./nginx_setup.sh
-          # Restart Gunicorn (adjust command as needed)
-          pkill gunicorn || true
-          gunicorn --bind 0.0.0.0:8000 course_platform.wsgi:application &
-
