@@ -1,10 +1,7 @@
-# Ignore Terraform local state
+# Terraform
 .terraform/
-terraform.tfstate
-terraform.tfstate.backup
+*.tfstate
+*.tfstate.backup
 .terraform.lock.hcl
 crash.log
-
-# Ignore sensitive variable files (optional)
 *.tfvars
-*.tfvars.json
