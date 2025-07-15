@@ -10,7 +10,7 @@ class CourseAdmin(admin.ModelAdmin):
 @admin.register(Lesson)
 class LessonAdmin(admin.ModelAdmin):
     list_display = ['title', 'course', 'order']
-    list_filter = ['course']
+    list_filter = ['course'] 
 
 @admin.register(Quiz)
 class QuizAdmin(admin.ModelAdmin):
