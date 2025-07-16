@@ -134,3 +134,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+CSRF_TRUSTED_ORIGINS = [
+    'https://reancloud.shvpn.live',
+    'http://django-alb-1547943395.ap-southeast-1.elb.amazonaws.com',  # Optional: include if still used
+]
