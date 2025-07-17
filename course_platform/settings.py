@@ -138,3 +138,4 @@ CSRF_TRUSTED_ORIGINS = [
     'https://reancloud.shvpn.live',
     'http://django-alb-1547943395.ap-southeast-1.elb.amazonaws.com',  # Optional: include if still used
 ]
+
